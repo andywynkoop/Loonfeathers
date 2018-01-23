@@ -1,0 +1,19 @@
+{
+  "name": "loonfeathers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andywynkoop/loon_production.git"
+  },
+  "author": "Andy Wynkoop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andywynkoop/loon_production/issues"
+  },
+  "homepage": "https://github.com/andywynkoop/loon_production#readme"
+}
