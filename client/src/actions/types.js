@@ -1,0 +1,10 @@
+export const FETCH_USER = 'fetch user';
+export const NEW_GAME = 'new game';
+export const FETCH_GAMES = 'fetch games';
+export const GAME_STATUS = 'game status';
+export const SET_TOPIC = 'set topic';
+export const SUBMIT = 'submit';
+export const CLOSE_SUB = 'close sub';
+export const CORRECT = 'correct';
+export const INCORRECT = 'incorrect';
+export const END = 'end round';
