@@ -5,11 +5,20 @@ import { Link } from 'react-router-dom';
 class Landing extends Component {
   renderOptions() {
     if (!this.props.auth) {
+      let btnStyle = { width: '250px', margin: '5px' };
       return (
         <div>
           <a href="/auth/google">
-            <button className="btn purple darken-3">Log in with Google</button>
+            <button className="btn purple darken-3" style={btnStyle}>
+              Log in with Google
+            </button>
           </a>
+          <br />
+          <Link to="/sign-up">
+            <button className="btn green darken-2" style={btnStyle}>
+              Create Account
+            </button>
+          </Link>
         </div>
       );
     } else {

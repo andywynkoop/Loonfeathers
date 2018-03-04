@@ -12,6 +12,7 @@ import Topic from './Topic';
 import Submit from './Submit';
 import WaitingRoom from './WaitingRoom';
 import Guess from './Guess';
+import SignUp from './SignUp';
 
 class App extends Component {
   componentDidMount() {
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path="/games/waiting-room" component={WaitingRoom} />
             <Route exact path="/games/guess" component={Guess} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/sign-up" component={SignUp} />
           </div>
         </BrowserRouter>
       </div>
