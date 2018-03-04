@@ -9,7 +9,8 @@ import {
   CLOSE_SUB,
   CORRECT,
   INCORRECT,
-  END
+  END,
+  CREATE_USER
 } from './types';
 
 export const fetchUser = () => async dispatch => {
@@ -108,6 +109,15 @@ export const end = _id => {
   const request = axios.post('/api/game/end', { _id });
   return {
     type: END,
+    payload: request
+  };
+};
+
+export const createUser = (username, hash) => {
+  const request = axios.post('/api/auth/loon', { username, hash });
+
+  return {
+    type: CREATE_USER,
     payload: request
   };
 };

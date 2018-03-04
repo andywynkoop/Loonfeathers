@@ -23,4 +23,9 @@ module.exports = app => {
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
+
+  app.post('/api/auth/loon', (req, res) => {
+    console.log('username: ', req.body.username);
+    console.log('password: ', req.body.hash);
+  });
 };

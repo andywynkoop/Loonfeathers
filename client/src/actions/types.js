@@ -8,3 +8,4 @@ export const CLOSE_SUB = 'close sub';
 export const CORRECT = 'correct';
 export const INCORRECT = 'incorrect';
 export const END = 'end round';
+export const CREATE_USER = 'create_user';

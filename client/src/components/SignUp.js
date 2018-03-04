@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import crypto from 'crypto';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class SignUp extends Component {
   state = {
@@ -11,7 +13,10 @@ class SignUp extends Component {
   componentDidMount() {
     console.log('fetch current usernames here; probably with an async');
   }
-  weak = password => true;
+  weak = password => {
+    // something here to validate contents of password
+    return false;
+  };
   hide = password =>
     password
       .split('')
@@ -22,6 +27,12 @@ class SignUp extends Component {
       .createHmac('sha256', password)
       .update('Loonfeathers')
       .digest('hex');
+  save = () => {
+    const { username, password } = this.state;
+    console.log('Username: ', username, ' Password: ', this.hash(password));
+    console.log('delete the above');
+    this.props.createUser(username, this.hash(password));
+  };
   validate = event => {
     event.preventDefault();
     this.setState({ error: {} });
@@ -38,11 +49,13 @@ class SignUp extends Component {
     } else if (this.weak(password)) {
       error.password = 'This password is weak af';
     }
+    if (Object.keys(error).length === 0) {
+      this.save();
+    }
     this.setState({ error });
   };
   render() {
     const { username, password, error } = this.state;
-    console.log(this.hash(password));
     return (
       <div>
         <form onSubmit={this.validate} style={{ textAlign: 'left' }}>
@@ -56,8 +69,8 @@ class SignUp extends Component {
           />
           <p className="red-text text-darken-2">{error.username}</p>
           <input
-            type="text"
-            value={this.hide(password)}
+            type="password"
+            value={password}
             onChange={event => this.setState({ password: event.target.value })}
             placeholder="And a password..."
           />
@@ -71,4 +84,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default connect(null, actions)(SignUp);
